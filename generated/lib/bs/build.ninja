@@ -1,0 +1,195 @@
+rescript = 1
+g_finger := /home/cniceface/Npro/generated/node_modules/@ryyppy/rescript-promise/lib/ocaml/install.stamp
+g_finger := /home/cniceface/Npro/generated/node_modules/rescript-envsafe/lib/ocaml/install.stamp
+g_finger := /home/cniceface/Npro/generated/node_modules/rescript-struct/lib/ocaml/install.stamp
+g_finger := /home/cniceface/Npro/generated/node_modules/@greenlabs/ppx-spice/lib/ocaml/install.stamp
+g_finger := /home/cniceface/Npro/generated/node_modules/rescript-express/lib/ocaml/install.stamp
+g_finger := /home/cniceface/Npro/generated/node_modules/@glennsl/rescript-fetch/lib/ocaml/install.stamp
+rule astj
+  command = /home/cniceface/Npro/node_modules/.pnpm/rescript@10.1.4/node_modules/rescript/linux/bsc.exe  -bs-v 10.1.4,1696732643.07 -ppx /home/cniceface/Npro/generated/node_modules/@greenlabs/ppx-spice/ppx -open RescriptStruct -absname -bs-ast -o $out $i
+o src/IO.ast : astj ../../src/IO.res
+rule deps
+  command = /home/cniceface/Npro/node_modules/.pnpm/rescript@10.1.4/node_modules/rescript/linux/bsb_helper.exe -hash e541917389cbbeb15132e26a51ae9e08 $in
+  restat = 1
+o src/IO.d : deps src/IO.ast
+rule mij
+  command = /home/cniceface/Npro/node_modules/.pnpm/rescript@10.1.4/node_modules/rescript/linux/bsc.exe -I src/eventFetching/chainWorkers -I src/eventFetching/hypersync -I src/eventFetching -I src/bindings -I src -I /home/cniceface/Npro/generated/node_modules/@ryyppy/rescript-promise/lib/ocaml -I /home/cniceface/Npro/generated/node_modules/rescript-envsafe/lib/ocaml -I /home/cniceface/Npro/generated/node_modules/rescript-struct/lib/ocaml -I /home/cniceface/Npro/generated/node_modules/@greenlabs/ppx-spice/lib/ocaml -I /home/cniceface/Npro/generated/node_modules/rescript-express/lib/ocaml -I /home/cniceface/Npro/generated/node_modules/@glennsl/rescript-fetch/lib/ocaml -open RescriptStruct  -bs-gentype -bs-package-name generated -bs-package-output commonjs:$in_d:.bs.js -bs-v $g_finger $i
+  dyndep = 1
+  restat = 1
+o src/IO.cmj src/IO.cmi ../../src/IO.bs.js : mij src/IO.ast
+o src/Env.ast : astj ../../src/Env.res
+o src/Env.d : deps src/Env.ast
+o src/Env.cmj src/Env.cmi ../../src/Env.bs.js : mij src/Env.ast
+o src/Abis.ast : astj ../../src/Abis.res
+o src/Abis.d : deps src/Abis.ast
+o src/Abis.cmj src/Abis.cmi ../../src/Abis.bs.js : mij src/Abis.ast
+o src/Logs.ast : astj ../../src/Logs.res
+o src/Logs.d : deps src/Logs.ast
+o src/Logs.cmj src/Logs.cmi ../../src/Logs.bs.js : mij src/Logs.ast
+o src/Time.ast : astj ../../src/Time.res
+o src/Time.d : deps src/Time.ast
+o src/Time.cmj src/Time.cmi ../../src/Time.bs.js : mij src/Time.ast
+o src/Index.ast : astj ../../src/Index.res
+o src/Index.d : deps src/Index.ast
+o src/Index.cmj src/Index.cmi ../../src/Index.bs.js : mij src/Index.ast
+o src/Types.ast : astj ../../src/Types.res
+o src/Types.d : deps src/Types.ast
+o src/Types.cmj src/Types.cmi ../../src/Types.bs.js : mij src/Types.ast
+o src/Utils.ast : astj ../../src/Utils.res
+o src/Utils.d : deps src/Utils.ast
+o src/Utils.cmj src/Utils.cmi ../../src/Utils.bs.js : mij src/Utils.ast
+o src/Config.ast : astj ../../src/Config.res
+o src/Config.d : deps src/Config.ast
+o src/Config.cmj src/Config.cmi ../../src/Config.bs.js : mij src/Config.ast
+o src/Context.ast : astj ../../src/Context.res
+o src/Context.d : deps src/Context.ast
+o src/Context.cmj src/Context.cmi ../../src/Context.bs.js : mij src/Context.ast
+o src/Logging.ast : astj ../../src/Logging.res
+o src/Logging.d : deps src/Logging.ast
+o src/Logging.cmj src/Logging.cmi ../../src/Logging.bs.js : mij src/Logging.ast
+o src/Deferred.ast : astj ../../src/Deferred.res
+o src/Deferred.d : deps src/Deferred.ast src/Deferred.iast
+o src/Deferred.iast : astj ../../src/Deferred.resi
+rule mi
+  command = /home/cniceface/Npro/node_modules/.pnpm/rescript@10.1.4/node_modules/rescript/linux/bsc.exe -I src/eventFetching/chainWorkers -I src/eventFetching/hypersync -I src/eventFetching -I src/bindings -I src -I /home/cniceface/Npro/generated/node_modules/@ryyppy/rescript-promise/lib/ocaml -I /home/cniceface/Npro/generated/node_modules/rescript-envsafe/lib/ocaml -I /home/cniceface/Npro/generated/node_modules/rescript-struct/lib/ocaml -I /home/cniceface/Npro/generated/node_modules/@greenlabs/ppx-spice/lib/ocaml -I /home/cniceface/Npro/generated/node_modules/rescript-express/lib/ocaml -I /home/cniceface/Npro/generated/node_modules/@glennsl/rescript-fetch/lib/ocaml -open RescriptStruct  -bs-gentype -bs-v $g_finger $i
+  dyndep = 1
+  restat = 1
+o src/Deferred.cmi : mi src/Deferred.iast
+rule mj
+  command = /home/cniceface/Npro/node_modules/.pnpm/rescript@10.1.4/node_modules/rescript/linux/bsc.exe -bs-read-cmi -I src/eventFetching/chainWorkers -I src/eventFetching/hypersync -I src/eventFetching -I src/bindings -I src -I /home/cniceface/Npro/generated/node_modules/@ryyppy/rescript-promise/lib/ocaml -I /home/cniceface/Npro/generated/node_modules/rescript-envsafe/lib/ocaml -I /home/cniceface/Npro/generated/node_modules/rescript-struct/lib/ocaml -I /home/cniceface/Npro/generated/node_modules/@greenlabs/ppx-spice/lib/ocaml -I /home/cniceface/Npro/generated/node_modules/rescript-express/lib/ocaml -I /home/cniceface/Npro/generated/node_modules/@glennsl/rescript-fetch/lib/ocaml -open RescriptStruct  -bs-gentype -bs-package-name generated -bs-package-output commonjs:$in_d:.bs.js -bs-v $g_finger $i
+  dyndep = 1
+  restat = 1
+o src/Deferred.cmj ../../src/Deferred.bs.js : mj src/Deferred.ast src/Deferred.cmi
+o src/EnvUtils.ast : astj ../../src/EnvUtils.res
+o src/EnvUtils.d : deps src/EnvUtils.ast
+o src/EnvUtils.cmj src/EnvUtils.cmi ../../src/EnvUtils.bs.js : mij src/EnvUtils.ast
+o src/Handlers.ast : astj ../../src/Handlers.res
+o src/Handlers.d : deps src/Handlers.ast
+o src/Handlers.cmj src/Handlers.cmi ../../src/Handlers.bs.js : mij src/Handlers.ast
+o src/Converters.ast : astj ../../src/Converters.res
+o src/Converters.d : deps src/Converters.ast
+o src/Converters.cmj src/Converters.cmi ../../src/Converters.bs.js : mij src/Converters.ast
+o src/EventUtils.ast : astj ../../src/EventUtils.res
+o src/EventUtils.d : deps src/EventUtils.ast
+o src/EventUtils.cmj src/EventUtils.cmi ../../src/EventUtils.bs.js : mij src/EventUtils.ast
+o src/LazyLoader.ast : astj ../../src/LazyLoader.res
+o src/LazyLoader.d : deps src/LazyLoader.ast
+o src/LazyLoader.cmj src/LazyLoader.cmi ../../src/LazyLoader.bs.js : mij src/LazyLoader.ast
+o src/Migrations.ast : astj ../../src/Migrations.res
+o src/Migrations.d : deps src/Migrations.ast
+o src/Migrations.cmj src/Migrations.cmi ../../src/Migrations.bs.js : mij src/Migrations.ast
+o src/Prometheus.ast : astj ../../src/Prometheus.res
+o src/Prometheus.d : deps src/Prometheus.ast
+o src/Prometheus.cmj src/Prometheus.cmi ../../src/Prometheus.bs.js : mij src/Prometheus.ast
+o src/DbFunctions.ast : astj ../../src/DbFunctions.res
+o src/DbFunctions.d : deps src/DbFunctions.ast
+o src/DbFunctions.cmj src/DbFunctions.cmi ../../src/DbFunctions.bs.js : mij src/DbFunctions.ast
+o src/TrackTables.ast : astj ../../src/TrackTables.res
+o src/TrackTables.d : deps src/TrackTables.ast
+o src/TrackTables.cmj src/TrackTables.cmi ../../src/TrackTables.bs.js : mij src/TrackTables.ast
+o src/EventSyncing.ast : astj ../../src/EventSyncing.res
+o src/EventSyncing.d : deps src/EventSyncing.ast
+o src/EventSyncing.cmj src/EventSyncing.cmi ../../src/EventSyncing.bs.js : mij src/EventSyncing.ast
+o src/EventFetching.ast : astj ../../src/EventFetching.res
+o src/EventFetching.d : deps src/EventFetching.ast
+o src/EventFetching.cmj src/EventFetching.cmi ../../src/EventFetching.bs.js : mij src/EventFetching.ast
+o src/DatabaseCreator.ast : astj ../../src/DatabaseCreator.res
+o src/DatabaseCreator.d : deps src/DatabaseCreator.ast
+o src/DatabaseCreator.cmj src/DatabaseCreator.cmi ../../src/DatabaseCreator.bs.js : mij src/DatabaseCreator.ast
+o src/EventProcessing.ast : astj ../../src/EventProcessing.res
+o src/EventProcessing.d : deps src/EventProcessing.ast
+o src/EventProcessing.cmj src/EventProcessing.cmi ../../src/EventProcessing.bs.js : mij src/EventProcessing.ast
+o src/RegisterHandlers.ast : astj ../../src/RegisterHandlers.res
+o src/RegisterHandlers.d : deps src/RegisterHandlers.ast
+o src/RegisterHandlers.cmj src/RegisterHandlers.cmi ../../src/RegisterHandlers.bs.js : mij src/RegisterHandlers.ast
+o src/ContractAddressingMap.ast : astj ../../src/ContractAddressingMap.res
+o src/ContractAddressingMap.d : deps src/ContractAddressingMap.ast
+o src/ContractAddressingMap.cmj src/ContractAddressingMap.cmi ../../src/ContractAddressingMap.bs.js : mij src/ContractAddressingMap.ast
+o src/ContractInterfaceManager.ast : astj ../../src/ContractInterfaceManager.res
+o src/ContractInterfaceManager.d : deps src/ContractInterfaceManager.ast
+o src/ContractInterfaceManager.cmj src/ContractInterfaceManager.cmi ../../src/ContractInterfaceManager.bs.js : mij src/ContractInterfaceManager.ast
+o src/bindings/Set.ast : astj ../../src/bindings/Set.res
+o src/bindings/Set.d : deps src/bindings/Set.ast
+o src/bindings/Set.cmj src/bindings/Set.cmi ../../src/bindings/Set.bs.js : mij src/bindings/Set.ast
+o src/bindings/Pino.ast : astj ../../src/bindings/Pino.res
+o src/bindings/Pino.d : deps src/bindings/Pino.ast
+o src/bindings/Pino.cmj src/bindings/Pino.cmi ../../src/bindings/Pino.bs.js : mij src/bindings/Pino.ast
+o src/bindings/SDSL.ast : astj ../../src/bindings/SDSL.res
+o src/bindings/SDSL.d : deps src/bindings/SDSL.ast
+o src/bindings/SDSL.cmj src/bindings/SDSL.cmi ../../src/bindings/SDSL.bs.js : mij src/bindings/SDSL.ast
+o src/bindings/Yargs.ast : astj ../../src/bindings/Yargs.res
+o src/bindings/Yargs.d : deps src/bindings/Yargs.ast
+o src/bindings/Yargs.cmj src/bindings/Yargs.cmi ../../src/bindings/Yargs.bs.js : mij src/bindings/Yargs.ast
+o src/bindings/Ethers.ast : astj ../../src/bindings/Ethers.res
+o src/bindings/Ethers.d : deps src/bindings/Ethers.ast
+o src/bindings/Ethers.cmj src/bindings/Ethers.cmi ../../src/bindings/Ethers.bs.js : mij src/bindings/Ethers.ast
+o src/bindings/Hrtime.ast : astj ../../src/bindings/Hrtime.res
+o src/bindings/Hrtime.d : deps src/bindings/Hrtime.ast src/bindings/Hrtime.iast
+o src/bindings/Hrtime.iast : astj ../../src/bindings/Hrtime.resi
+o src/bindings/Hrtime.cmi : mi src/bindings/Hrtime.iast
+o src/bindings/Hrtime.cmj ../../src/bindings/Hrtime.bs.js : mj src/bindings/Hrtime.ast src/bindings/Hrtime.cmi
+o src/bindings/Postgres.ast : astj ../../src/bindings/Postgres.res
+o src/bindings/Postgres.d : deps src/bindings/Postgres.ast
+o src/bindings/Postgres.cmj src/bindings/Postgres.cmi ../../src/bindings/Postgres.bs.js : mij src/bindings/Postgres.ast
+o src/bindings/PromClient.ast : astj ../../src/bindings/PromClient.res
+o src/bindings/PromClient.d : deps src/bindings/PromClient.ast
+o src/bindings/PromClient.cmj src/bindings/PromClient.cmi ../../src/bindings/PromClient.bs.js : mij src/bindings/PromClient.ast
+o src/bindings/SkarClient.ast : astj ../../src/bindings/SkarClient.res
+o src/bindings/SkarClient.d : deps src/bindings/SkarClient.ast
+o src/bindings/SkarClient.cmj src/bindings/SkarClient.cmi ../../src/bindings/SkarClient.bs.js : mij src/bindings/SkarClient.ast
+o src/eventFetching/ChainWorker.ast : astj ../../src/eventFetching/ChainWorker.res
+o src/eventFetching/ChainWorker.d : deps src/eventFetching/ChainWorker.ast src/eventFetching/ChainWorker.iast
+o src/eventFetching/ChainWorker.iast : astj ../../src/eventFetching/ChainWorker.resi
+o src/eventFetching/ChainWorker.cmi : mi src/eventFetching/ChainWorker.iast
+o src/eventFetching/ChainWorker.cmj ../../src/eventFetching/ChainWorker.bs.js : mj src/eventFetching/ChainWorker.ast src/eventFetching/ChainWorker.cmi
+o src/eventFetching/ChainFetcher.ast : astj ../../src/eventFetching/ChainFetcher.res
+o src/eventFetching/ChainFetcher.d : deps src/eventFetching/ChainFetcher.ast src/eventFetching/ChainFetcher.iast
+o src/eventFetching/ChainFetcher.iast : astj ../../src/eventFetching/ChainFetcher.resi
+o src/eventFetching/ChainFetcher.cmi : mi src/eventFetching/ChainFetcher.iast
+o src/eventFetching/ChainFetcher.cmj ../../src/eventFetching/ChainFetcher.bs.js : mj src/eventFetching/ChainFetcher.ast src/eventFetching/ChainFetcher.cmi
+o src/eventFetching/ChainManager.ast : astj ../../src/eventFetching/ChainManager.res
+o src/eventFetching/ChainManager.d : deps src/eventFetching/ChainManager.ast src/eventFetching/ChainManager.iast
+o src/eventFetching/ChainManager.iast : astj ../../src/eventFetching/ChainManager.resi
+o src/eventFetching/ChainManager.cmi : mi src/eventFetching/ChainManager.iast
+o src/eventFetching/ChainManager.cmj ../../src/eventFetching/ChainManager.bs.js : mj src/eventFetching/ChainManager.ast src/eventFetching/ChainManager.cmi
+o src/eventFetching/ChainEventQueue.ast : astj ../../src/eventFetching/ChainEventQueue.res
+o src/eventFetching/ChainEventQueue.d : deps src/eventFetching/ChainEventQueue.ast src/eventFetching/ChainEventQueue.iast
+o src/eventFetching/ChainEventQueue.iast : astj ../../src/eventFetching/ChainEventQueue.resi
+o src/eventFetching/ChainEventQueue.cmi : mi src/eventFetching/ChainEventQueue.iast
+o src/eventFetching/ChainEventQueue.cmj ../../src/eventFetching/ChainEventQueue.bs.js : mj src/eventFetching/ChainEventQueue.ast src/eventFetching/ChainEventQueue.cmi
+o src/eventFetching/hypersync/Skar.ast : astj ../../src/eventFetching/hypersync/Skar.res
+o src/eventFetching/hypersync/Skar.d : deps src/eventFetching/hypersync/Skar.ast
+o src/eventFetching/hypersync/Skar.cmj src/eventFetching/hypersync/Skar.cmi ../../src/eventFetching/hypersync/Skar.bs.js : mij src/eventFetching/hypersync/Skar.ast
+o src/eventFetching/hypersync/HyperSync.ast : astj ../../src/eventFetching/hypersync/HyperSync.res
+o src/eventFetching/hypersync/HyperSync.d : deps src/eventFetching/hypersync/HyperSync.ast
+o src/eventFetching/hypersync/HyperSync.cmj src/eventFetching/hypersync/HyperSync.cmi ../../src/eventFetching/hypersync/HyperSync.bs.js : mij src/eventFetching/hypersync/HyperSync.ast
+o src/eventFetching/hypersync/EthArchive.ast : astj ../../src/eventFetching/hypersync/EthArchive.res
+o src/eventFetching/hypersync/EthArchive.d : deps src/eventFetching/hypersync/EthArchive.ast
+o src/eventFetching/hypersync/EthArchive.cmj src/eventFetching/hypersync/EthArchive.cmi ../../src/eventFetching/hypersync/EthArchive.bs.js : mij src/eventFetching/hypersync/EthArchive.ast
+o src/eventFetching/hypersync/QueryHelpers.ast : astj ../../src/eventFetching/hypersync/QueryHelpers.res
+o src/eventFetching/hypersync/QueryHelpers.d : deps src/eventFetching/hypersync/QueryHelpers.ast
+o src/eventFetching/hypersync/QueryHelpers.cmj src/eventFetching/hypersync/QueryHelpers.cmi ../../src/eventFetching/hypersync/QueryHelpers.bs.js : mij src/eventFetching/hypersync/QueryHelpers.ast
+o src/eventFetching/hypersync/HyperSyncTypes.ast : astj ../../src/eventFetching/hypersync/HyperSyncTypes.res
+o src/eventFetching/hypersync/HyperSyncTypes.d : deps src/eventFetching/hypersync/HyperSyncTypes.ast
+o src/eventFetching/hypersync/HyperSyncTypes.cmj src/eventFetching/hypersync/HyperSyncTypes.cmi ../../src/eventFetching/hypersync/HyperSyncTypes.bs.js : mij src/eventFetching/hypersync/HyperSyncTypes.ast
+o src/eventFetching/hypersync/SkarQueryBuilder.ast : astj ../../src/eventFetching/hypersync/SkarQueryBuilder.res
+o src/eventFetching/hypersync/SkarQueryBuilder.d : deps src/eventFetching/hypersync/SkarQueryBuilder.ast
+o src/eventFetching/hypersync/SkarQueryBuilder.cmj src/eventFetching/hypersync/SkarQueryBuilder.cmi ../../src/eventFetching/hypersync/SkarQueryBuilder.bs.js : mij src/eventFetching/hypersync/SkarQueryBuilder.ast
+o src/eventFetching/hypersync/EthArchiveQueryBuilder.ast : astj ../../src/eventFetching/hypersync/EthArchiveQueryBuilder.res
+o src/eventFetching/hypersync/EthArchiveQueryBuilder.d : deps src/eventFetching/hypersync/EthArchiveQueryBuilder.ast
+o src/eventFetching/hypersync/EthArchiveQueryBuilder.cmj src/eventFetching/hypersync/EthArchiveQueryBuilder.cmi ../../src/eventFetching/hypersync/EthArchiveQueryBuilder.bs.js : mij src/eventFetching/hypersync/EthArchiveQueryBuilder.ast
+o src/eventFetching/chainWorkers/RpcWorker.ast : astj ../../src/eventFetching/chainWorkers/RpcWorker.res
+o src/eventFetching/chainWorkers/RpcWorker.d : deps src/eventFetching/chainWorkers/RpcWorker.ast
+o src/eventFetching/chainWorkers/RpcWorker.cmj src/eventFetching/chainWorkers/RpcWorker.cmi ../../src/eventFetching/chainWorkers/RpcWorker.bs.js : mij src/eventFetching/chainWorkers/RpcWorker.ast
+o src/eventFetching/chainWorkers/SourceWorker.ast : astj ../../src/eventFetching/chainWorkers/SourceWorker.res
+o src/eventFetching/chainWorkers/SourceWorker.d : deps src/eventFetching/chainWorkers/SourceWorker.ast
+o src/eventFetching/chainWorkers/SourceWorker.cmj src/eventFetching/chainWorkers/SourceWorker.cmi ../../src/eventFetching/chainWorkers/SourceWorker.bs.js : mij src/eventFetching/chainWorkers/SourceWorker.ast
+o src/eventFetching/chainWorkers/HyperSyncWorker.ast : astj ../../src/eventFetching/chainWorkers/HyperSyncWorker.res
+o src/eventFetching/chainWorkers/HyperSyncWorker.d : deps src/eventFetching/chainWorkers/HyperSyncWorker.ast
+o src/eventFetching/chainWorkers/HyperSyncWorker.cmj src/eventFetching/chainWorkers/HyperSyncWorker.cmi ../../src/eventFetching/chainWorkers/HyperSyncWorker.bs.js : mij src/eventFetching/chainWorkers/HyperSyncWorker.ast
+o src/eventFetching/chainWorkers/RawEventsWorker.ast : astj ../../src/eventFetching/chainWorkers/RawEventsWorker.res
+o src/eventFetching/chainWorkers/RawEventsWorker.d : deps src/eventFetching/chainWorkers/RawEventsWorker.ast
+o src/eventFetching/chainWorkers/RawEventsWorker.cmj src/eventFetching/chainWorkers/RawEventsWorker.cmi ../../src/eventFetching/chainWorkers/RawEventsWorker.bs.js : mij src/eventFetching/chainWorkers/RawEventsWorker.ast
+o src/eventFetching/chainWorkers/ChainWorkerTypes.ast : astj ../../src/eventFetching/chainWorkers/ChainWorkerTypes.res
+o src/eventFetching/chainWorkers/ChainWorkerTypes.d : deps src/eventFetching/chainWorkers/ChainWorkerTypes.ast
+o src/eventFetching/chainWorkers/ChainWorkerTypes.cmj src/eventFetching/chainWorkers/ChainWorkerTypes.cmi ../../src/eventFetching/chainWorkers/ChainWorkerTypes.bs.js : mij src/eventFetching/chainWorkers/ChainWorkerTypes.ast

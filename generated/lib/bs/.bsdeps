@@ -1,0 +1,12 @@
+10.1.4
+/home/cniceface/Npro/generated
+0
+bsconfig.json	0x1.949d776743597p+30
+src	0x1.949d776780ca1p+30
+src/bindings	0x1.949d77674d96ep+30
+src/eventFetching	0x1.949d77674d96ep+30
+src/eventFetching/hypersync	0x1.949d776757d45p+30
+src/eventFetching/chainWorkers	0x1.949d77674d96ep+30
+===
+/home/cniceface/Npro/node_modules/.pnpm/rescript@10.1.4/node_modules/rescript/linux/rescript.exe	0x1.949d779280ca1p+30
+/home/cniceface/Npro/generated/node_modules/@greenlabs/ppx-spice/ppx	0x1.94996f40f917dp+30
