@@ -1,0 +1,1 @@
+src/EventSyncing.cmj : src/eventFetching/ChainManager.cmj src/eventFetching/ChainManager.cmi src/Config.cmj src/Config.cmi src/Env.cmj src/Env.cmi src/EventProcessing.cmj src/EventProcessing.cmi src/Logging.cmj src/Logging.cmi
