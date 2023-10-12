@@ -1,0 +1,140 @@
+name: DlistingP # Name of the project
+description: Uniswap indexing # Description of the project
+networks: # Configuration of the blockchain networks that the project is deployed on
+  - id: 11155111 # Chain identifier of the network
+    rpc_config:
+      url: https://sepolia.infura.io/v3/a25f838e411243c3af3a3c1c17143b59 # RPC URL that will be used to subscribe to blockchain data on this network
+      unstable__sync_config:
+        initial_block_interval: 10000 # Integer
+        backoff_multiplicative: 0.8 # Float
+        acceleration_additive: 2000 # Integer
+        interval_ceiling: 10000 # Integer
+        backoff_millis: 5000 # Integer
+        query_timeout_millis: 20000 # Integer 
+    start_block: 3646999  # Initial block from which the indexer will start listening for events
+    contracts: # Configuration for each contract
+      - name: UniswapV2Router02 # User-defined contract name
+        abi_file_path: abis/UniswapV2Router02.json # File location of the contract ABI
+        address: "0x86dcd3293C53Cf8EFd7303B57beb2a3F671dDE98" # An array of addresses that the contract is deployed to on the network
+        handler: src/EventHandlers.js # Location of the file that handles the events emitted by this contract
+        events: # Configuration for each event emitted by this contract that the indexer will listen for
+          - event: swapETHForExactTokens  # Name of the first "Swap" event
+            requiredEntities:
+              - name: User # The name of the required entity (must match an entity defined in `schema.graphql`)
+              - name: Asset
+              - name: Pool
+              - name: Time
+
+          - event: swapExactETHForTokens  
+            requiredEntities:
+              - name: User
+              - name: Asset
+              - name: Pool
+              - name: Time
+
+          - event: swapExactETHForTokensSupportingFeeOnTransferTokens 
+            requiredEntities:
+              - name: User
+              - name: Asset
+              - name: Pool
+              - name: Time
+          
+          - event: swapExactTokensForETH 
+            requiredEntities:
+               - name: User
+               - name: Asset
+               - name: Pool
+               - name: Time
+          
+          - event: swapExactTokensForETHSupportingFeeOnTransferTokens
+            requiredEntities:
+               - name: User
+               - name: Asset
+               - name: Pool
+               - name: Time
+          
+          - event: swapExactTokensForTokens
+            requiredEntities:
+               - name: User
+               - name: Asset
+               - name: Pool
+               - name: Time
+          
+          - event: swapExactTokensForTokensSupportingFeeOnTransferTokens
+            requiredEntities:
+              - name: User
+              - name: Asset
+              - name: Pool
+              - name: Time
+          
+          - event: swapTokensForExactETH
+            requiredEntities:
+              - name: User
+              - name: Asset
+              - name: Pool
+              - name: Time
+          
+          - event: swapTokensForExactTokens 
+            requiredEntities:
+              - name: User
+              - name: Asset
+              - name: Pool
+              - name: Time
+          
+          - event: addLiquidity
+            requiredEntities:
+               - name: User
+               - name: Asset
+               - name: Pool
+               - name: Time
+          
+          - event: addLiquidityETH
+            requiredEntities:
+              - name: User
+              - name: Asset
+              - name: Pool
+              - name: Time
+
+          - event: RemoveLiquidity 
+            requiredEntities:
+              - name: User
+              - name: Asset
+              - name: Pool
+              - name: Time
+
+          - event: removeLiquidityETH 
+            requiredEntities:
+              - name: User
+              - name: Asset
+              - name: Pool
+              - name: Time
+
+          - event: removeLiquidityETHSupportingFeeOnTransferTokens
+            requiredEntities:
+               - name: User
+               - name: Asset
+               - name: Pool
+               - name: Time
+          
+          - event: removeLiquidityETHWithPermit
+            requiredEntities:
+               - name: User
+               - name: Asset
+               - name: Pool
+               - name: Time
+          
+          - event: removeLiquidityETHWithPermitSupportingFeeOnTransferTokens
+            requiredEntities:
+               - name: User
+               - name: Asset
+               - name: Pool
+               - name: Time
+          
+          - event: removeLiquidityWithPermit 
+            requiredEntities:
+               - name: User
+               - name: Asset
+               - name: Pool
+               - name: Time
+
+         

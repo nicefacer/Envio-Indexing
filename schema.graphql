@@ -1,0 +1,350 @@
+type User {
+  id: ID!
+  address: String!
+}
+
+type Asset {
+  id: ID!
+  address: String!
+  symbol: String!
+}
+
+type Pool {
+  id: ID!
+  token0: Asset!
+  token1: Asset!
+}
+
+type Time {
+  id: ID!
+  timestamp: Int!
+}
+
+type SwapETHForExactTokens {
+  id: ID!
+  user: User!
+  asset: Asset!
+  pool: Pool!
+  time: Time!
+  amountIn: Float!
+  amountOut: Float!
+}
+
+type SwapExactETHForTokens {
+  id: ID!
+  user: User!
+  asset: Asset!
+  pool: Pool!
+  time: Time!
+  amountIn: Float!
+  amountOut: Float!
+}
+
+type SwapExactETHForTokensSupportingFeeOnTransferTokens {
+  id: ID!
+  user: User!
+  asset: Asset!
+  pool: Pool!
+  time: Time!
+}
+
+type SwapExactTokensForETH {
+  id: ID!
+  user: User!
+  asset: Asset!
+  pool: Pool!
+  time: Time!
+  amountIn: Float!
+  amountOut: Float!
+}
+
+type SwapExactTokensForETHSupportingFeeOnTransferTokens {
+  id: ID!
+  user: User!
+  asset: Asset!
+  pool: Pool!
+  time: Time!
+}
+
+type SwapExactTokensForTokens {
+  id: ID!
+  user: User!
+  asset: Asset!
+  pool: Pool!
+  time: Time!
+  amountIn: Float!
+  amountOut: Float!
+}
+
+type SwapExactTokensForTokensSupportingFeeOnTransferTokens {
+  id: ID!
+  user: User!
+  asset: Asset!
+  pool: Pool!
+  time: Time!
+}
+
+type SwapTokensForExactETH {
+  id: ID!
+  user: User!
+  asset: Asset!
+  pool: Pool!
+  time: Time!
+  amountIn: Float!
+  amountOut: Float!
+}
+
+type SwapTokensForExactTokens {
+  id: ID!
+  user: User!
+  asset: Asset!
+  pool: Pool!
+  time: Time!
+  amountIn: Float!
+  amountOut: Float!
+}
+
+type AddLiquidity {
+  id: ID!
+  user: User!
+  asset: Asset!
+  pool: Pool!
+  time: Time!
+  amountA: Float!
+  amountB: Float!
+  liquidity: Float!
+}
+
+type AddLiquidityETH {
+  id: ID!
+  user: User!
+  asset: Asset!
+  pool: Pool!
+  time: Time!
+  amountToken: Float!
+  amountETH: Float!
+  liquidity: Float!
+}
+
+type RemoveLiquidity {
+  id: ID!
+  user: User!
+  asset0: Asset!
+  asset1: Asset!
+  pool: Pool!
+  time: Time!
+  amount0Removed: Float!
+  amount1Removed: Float!
+}
+
+type RemoveLiquidityETH {
+  id: ID!
+  user: User!
+  asset: Asset!
+  pool: Pool!
+  time: Time!
+  amountToken: Float!
+  amountETH: Float!
+}
+
+type RemoveLiquidityETHSupportingFeeOnTransferTokens {
+  id: ID!
+  user: User!
+  asset: Asset!
+  pool: Pool!
+  time: Time!
+  amountETH: Float!
+}
+
+type RemoveLiquidityETHWithPermit {
+  id: ID!
+  user: User!
+  asset: Asset!
+  pool: Pool!
+  time: Time!
+  amountToken: Float!
+  amountETH: Float!
+}
+
+type RemoveLiquidityETHWithPermitSupportingFeeOnTransferTokens {
+  id: ID!
+  user: User!
+  asset: Asset!
+  pool: Pool!
+  time: Time!
+  amountETH: Float!
+}
+
+type RemoveLiquidityWithPermit {
+  id: ID!
+  user: User!
+  asset0: Asset!
+  asset1: Asset!
+  pool: Pool!
+  time: Time!
+  amount0Removed: Float!
+  amount1Removed: Float!
+}
+
+type Query {
+  swapETHForExactTokens(where: SwapETHForExactTokensFilterInput, first: Int, skip: Int): [SwapETHForExactTokens!]!
+  swapExactETHForTokens(where: SwapExactETHForTokensFilterInput, first: Int, skip: Int): [SwapExactETHForTokens!]!
+  swapExactETHForTokensSupportingFeeOnTransferTokens(where: SwapExactETHForTokensSupportingFeeOnTransferTokensFilterInput, first: Int, skip: Int): [SwapExactETHForTokensSupportingFeeOnTransferTokens!]!
+  swapExactTokensForETH(where: SwapExactTokensForETHFilterInput, first: Int, skip: Int): [SwapExactTokensForETH!]!
+  swapExactTokensForETHSupportingFeeOnTransferTokens(where: SwapExactTokensForETHSupportingFeeOnTransferTokensFilterInput, first: Int, skip: Int): [SwapExactTokensForETHSupportingFeeOnTransferTokens!]!
+  swapExactTokensForTokens(where: SwapExactTokensForTokensFilterInput, first: Int, skip: Int): [SwapExactTokensForTokens!]!
+  swapExactTokensForTokensSupportingFeeOnTransferTokens(where: SwapExactTokensForTokensSupportingFeeOnTransferTokensFilterInput, first: Int, skip: Int): [SwapExactTokensForTokensSupportingFeeOnTransferTokens!]!
+  swapTokensForExactETH(where: SwapTokensForExactETHFilterInput, first: Int, skip: Int): [SwapTokensForExactETH!]!
+  swapTokensForExactTokens(where: SwapTokensForExactTokensFilterInput, first: Int, skip: Int): [SwapTokensForExactTokens!]!
+  addLiquidity(where: AddLiquidityFilterInput, first: Int, skip: Int): [AddLiquidity!]!
+  addLiquidityETH(where: AddLiquidityETHFilterInput, first: Int, skip: Int): [AddLiquidityETH!]!
+  removeLiquidity(where: RemoveLiquidityFilterInput, first: Int, skip: Int): [RemoveLiquidity!]!
+  removeLiquidityETH(where: RemoveLiquidityETHFilterInput, first: Int, skip: Int): [RemoveLiquidityETH!]!
+  removeLiquidityETHSupportingFeeOnTransferTokens(where: RemoveLiquidityETHSupportingFeeOnTransferTokensFilterInput, first: Int, skip: Int): [RemoveLiquidityETHSupportingFeeOnTransferTokens!]!
+  removeLiquidityETHWithPermit(where: RemoveLiquidityETHWithPermitFilterInput, first: Int, skip: Int): [RemoveLiquidityETHWithPermit!]!
+  removeLiquidityETHWithPermitSupportingFeeOnTransferTokens(where: RemoveLiquidityETHWithPermitSupportingFeeOnTransferTokensFilterInput, first: Int, skip: Int): [RemoveLiquidityETHWithPermitSupportingFeeOnTransferTokens!]!
+  removeLiquidityWithPermit(where: RemoveLiquidityWithPermitFilterInput, first: Int, skip: Int): [RemoveLiquidityWithPermit!]!
+}
+
+input SwapETHForExactTokensFilterInput {
+  user: UserFilterInput
+  asset: AssetFilterInput
+  pool: PoolFilterInput
+  time: TimeFilterInput
+}
+
+input SwapExactETHForTokensFilterInput {
+  user: UserFilterInput
+  asset: AssetFilterInput
+  pool: PoolFilterInput
+  time: TimeFilterInput
+}
+
+input SwapExactETHForTokensSupportingFeeOnTransferTokensFilterInput {
+  user: UserFilterInput
+  asset: AssetFilterInput
+  pool: PoolFilterInput
+  time: TimeFilterInput
+}
+
+input SwapExactTokensForETHFilterInput {
+  user: UserFilterInput
+  asset: AssetFilterInput
+  pool: PoolFilterInput
+  time: TimeFilterInput
+}
+
+input SwapExactTokensForETHSupportingFeeOnTransferTokensFilterInput {
+  user: UserFilterInput
+  asset: AssetFilterInput
+  pool: PoolFilterInput
+  time: TimeFilterInput
+}
+
+input SwapExactTokensForTokensFilterInput {
+  user: UserFilterInput
+  asset: AssetFilterInput
+  pool: PoolFilterInput
+  time: TimeFilterInput
+}
+
+input SwapExactTokensForTokensSupportingFeeOnTransferTokensFilterInput {
+  user: UserFilterInput
+  asset: AssetFilterInput
+  pool: PoolFilterInput
+  time: TimeFilterInput
+}
+
+input SwapTokensForExactETHFilterInput {
+  user: UserFilterInput
+  asset: AssetFilterInput
+  pool: PoolFilterInput
+  time: TimeFilterInput
+}
+
+input SwapTokensForExactTokensFilterInput {
+  user: UserFilterInput
+  asset: AssetFilterInput
+  pool: PoolFilterInput
+  time: TimeFilterInput
+}
+
+input AddLiquidityFilterInput {
+  user: UserFilterInput
+  asset: AssetFilterInput
+  pool: PoolFilterInput
+  time: TimeFilterInput
+}
+
+input AddLiquidityETHFilterInput {
+  user: UserFilterInput
+  asset: AssetFilterInput
+  pool: PoolFilterInput
+  time: TimeFilterInput
+}
+
+input RemoveLiquidityFilterInput {
+  user: UserFilterInput
+  asset0: AssetFilterInput
+  asset1: AssetFilterInput
+  pool: PoolFilterInput
+  time: TimeFilterInput
+}
+
+input RemoveLiquidityETHFilterInput {
+  user: UserFilterInput
+  asset: AssetFilterInput
+  pool: PoolFilterInput
+  time: TimeFilterInput
+}
+
+input RemoveLiquidityETHSupportingFeeOnTransferTokensFilterInput {
+  user: UserFilterInput
+  asset: AssetFilterInput
+  pool: PoolFilterInput
+  time: TimeFilterInput
+}
+
+input RemoveLiquidityETHWithPermitFilterInput {
+  user: UserFilterInput
+  asset: AssetFilterInput
+  pool: PoolFilterInput
+  time: TimeFilterInput
+}
+
+input RemoveLiquidityETHWithPermitSupportingFeeOnTransferTokensFilterInput {
+  user: UserFilterInput
+  asset: AssetFilterInput
+  pool: PoolFilterInput
+  time: TimeFilterInput
+}
+
+input RemoveLiquidityWithPermitFilterInput {
+  user: UserFilterInput
+  asset0: AssetFilterInput
+  asset1: AssetFilterInput
+  pool: PoolFilterInput
+  time: TimeFilterInput
+}
+
+input UserFilterInput {
+  id: ID
+  address: String
+}
+
+input AssetFilterInput {
+  id: ID
+  address: String
+  symbol: String
+}
+
+input PoolFilterInput {
+  id: ID
+  token0: AssetFilterInput
+  token1: AssetFilterInput
+}
+
+input TimeFilterInput {
+  id: ID
+  timestamp: Int
+}
