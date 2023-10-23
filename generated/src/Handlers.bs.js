@@ -25,47 +25,83 @@ function getDefaultLoaderHandler(functionRegister, eventName, param, param$1) {
   
 }
 
-var awesomeEventLoader = {
+var swapLoader = {
   contents: undefined
 };
 
-var awesomeEventHandler = {
+var swapHandler = {
   contents: undefined
 };
 
 function loader(userLoader) {
-  awesomeEventLoader.contents = userLoader;
+  swapLoader.contents = userLoader;
 }
 
 function handler(userHandler) {
-  awesomeEventHandler.contents = userHandler;
+  swapHandler.contents = userHandler;
 }
 
 function getLoader(param) {
-  return Belt_Option.getWithDefault(awesomeEventLoader.contents, (function (param, param$1) {
-                return getDefaultLoaderHandler(/* Loader */0, "AwesomeEvent", param, param$1);
+  return Belt_Option.getWithDefault(swapLoader.contents, (function (param, param$1) {
+                return getDefaultLoaderHandler(/* Loader */0, "Swap", param, param$1);
               }));
 }
 
 function getHandler(param) {
-  return Belt_Option.getWithDefault(awesomeEventHandler.contents, (function (param, param$1) {
-                return getDefaultLoaderHandler(/* Handler */1, "AwesomeEvent", param, param$1);
+  return Belt_Option.getWithDefault(swapHandler.contents, (function (param, param$1) {
+                return getDefaultLoaderHandler(/* Handler */1, "Swap", param, param$1);
               }));
 }
 
-var AwesomeEvent = {
+var Swap = {
   loader: loader,
   handler: handler,
   getLoader: getLoader,
   getHandler: getHandler
 };
 
-var MyAwesomeContractContract = {
-  AwesomeEvent: AwesomeEvent
+var mintLoader = {
+  contents: undefined
+};
+
+var mintHandler = {
+  contents: undefined
+};
+
+function loader$1(userLoader) {
+  mintLoader.contents = userLoader;
+}
+
+function handler$1(userHandler) {
+  mintHandler.contents = userHandler;
+}
+
+function getLoader$1(param) {
+  return Belt_Option.getWithDefault(mintLoader.contents, (function (param, param$1) {
+                return getDefaultLoaderHandler(/* Loader */0, "Mint", param, param$1);
+              }));
+}
+
+function getHandler$1(param) {
+  return Belt_Option.getWithDefault(mintHandler.contents, (function (param, param$1) {
+                return getDefaultLoaderHandler(/* Handler */1, "Mint", param, param$1);
+              }));
+}
+
+var Mint = {
+  loader: loader$1,
+  handler: handler$1,
+  getLoader: getLoader$1,
+  getHandler: getHandler$1
+};
+
+var UniswapV3PoolContract = {
+  Swap: Swap,
+  Mint: Mint
 };
 
 exports.mapFunctionRegisterName = mapFunctionRegisterName;
 exports.hasPrintedWarning = hasPrintedWarning;
 exports.getDefaultLoaderHandler = getDefaultLoaderHandler;
-exports.MyAwesomeContractContract = MyAwesomeContractContract;
+exports.UniswapV3PoolContract = UniswapV3PoolContract;
 /* hasPrintedWarning Not a pure module */
