@@ -1,3 +1,4 @@
+
 type Asset {
   id: ID!
   address: String!
@@ -15,13 +16,14 @@ type Time {
   timestamp: Int!
 }
 
+
 type Swap {
   id: ID!
   asset: Asset!
   pool: Pool!
   time: Time!
-  amountIn: Float!
-  amountOut: Float!
+  amountIn: Float! 
+  amountOut: Float! 
 }
 
 type Mint {
@@ -32,7 +34,8 @@ type Mint {
   amountMinted: Float!
 }
 
-type Query {
+type Something {
+  id: ID!
   swaps: [Swap!]!
   mints: [Mint!]!
 }
