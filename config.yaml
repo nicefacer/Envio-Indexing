@@ -3,7 +3,7 @@ description: Uniswap indexing # Description of the project
 networks: # Configuration of the blockchain networks that the project is deployed on
   - id: 1 # Chain identifier of the network
     rpc_config:
-      url: https://eth.llamarpc.com     # RPC URL that will be used to subscribe to blockchain data on this network
+      url: https://mainnet.infura.io/v3/a25f838e411243c3af3a3c1c17143b59    # RPC URL that will be used to subscribe to blockchain data on this network
       unstable__sync_config:
         initial_block_interval: 10000 # Integer
         backoff_multiplicative: 0.8 # Float
@@ -29,4 +29,5 @@ networks: # Configuration of the blockchain networks that the project is deploye
               - name: Asset
               - name: Pool
               - name: Time
+
 
